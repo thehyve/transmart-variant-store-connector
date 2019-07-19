@@ -1,0 +1,17 @@
+
+spring:
+  application:
+    name: transmart-variant-store-connector
+  jackson:
+    serialization:
+      write_dates_as_timestamps: false
+  mvc:
+    favicon:
+      enabled: false
+
+server:
+  port: 9060
+
+keycloak:
+  bearer-only: true
+  use-resource-role-mappings: true

@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: transmart-variant-store-connector
+  jackson:
+    serialization:
+      write_dates_as_timestamps: false
+  mvc:
+    favicon:
+      enabled: false
+
+keycloak:
+  bearer-only: true
+  use-resource-role-mappings: true
+  auth-server-url: https://keycloak.example.com/auth
+  realm: transmart-test
+  resource: transmart-client
+
+transmart-client:
+  transmart-server-url: https://transmart.example.com
+
+variant-store-client:
+  variant-store-url: https://variant-store.example.com
