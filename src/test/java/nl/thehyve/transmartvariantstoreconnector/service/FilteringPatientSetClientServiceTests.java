@@ -37,14 +37,13 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 public class FilteringPatientSetClientServiceTests {
 
-    @MockBean
-    private CaseClient caseClient;
+    private @MockBean CaseClient caseClient;
 
-    @MockBean
-    private PatientSetClient patientSetClient;
+    private @MockBean PatientSetClient patientSetClient;
 
-    @Autowired
-    private MockMvc mvc;
+    private @Autowired MockMvc mvc;
+
+    private @Autowired ObjectMapper objectMapper;
 
     private void setupMockData() throws JsonProcessingException {
         Constraint heartRateConstraint = AndConstraint.builder().args(Arrays.asList(
@@ -56,7 +55,7 @@ public class FilteringPatientSetClientServiceTests {
             PatientSetResult.builder()
                 .id(3456L)
                 .setSize(50L)
-                .requestConstraints(new ObjectMapper().writeValueAsString(heartRateConstraint))
+                .requestConstraints(objectMapper.writeValueAsString(heartRateConstraint))
                 .name("Heart rate above 140")
                 .build());
         doReturn(heartRatePatientSetResponse)
@@ -84,7 +83,7 @@ public class FilteringPatientSetClientServiceTests {
             PatientSetResult.builder()
                 .id(7890L)
                 .setSize(25L)
-                .requestConstraints(new ObjectMapper().writeValueAsString(heartRateConstraint))
+                .requestConstraints(objectMapper.writeValueAsString(heartRateConstraint))
                 .name("Heart rate + chrom X")
                 .build());
         doReturn(combinationPatientSetResponse)
