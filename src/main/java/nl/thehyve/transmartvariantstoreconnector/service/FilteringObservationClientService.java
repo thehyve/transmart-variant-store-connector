@@ -5,9 +5,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.transmartproject.common.client.ObservationClient;
-import org.transmartproject.common.dto.Hypercube;
 import org.transmartproject.common.dto.Query;
 import org.transmartproject.proxy.service.ObservationClientService;
+
+import java.io.InputStream;
+import java.util.function.Consumer;
 
 @Primary
 @Service
@@ -24,8 +26,9 @@ public class FilteringObservationClientService extends ObservationClientService 
     }
 
     @Override
-    public Hypercube fetchObservations(Query query) {
-        return super.fetchObservations(biomarkerConstraintTranslator.apply(query));
+    public void fetchObservations(Query query, Consumer<InputStream> reader) {
+        log.info("Fetch observations for query: {}", query);
+        super.fetchObservations(biomarkerConstraintTranslator.apply(query), reader);
     }
 
 }

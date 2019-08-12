@@ -1,5 +1,7 @@
 package nl.thehyve.transmartvariantstoreconnector.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import nl.thehyve.transmartvariantstoreconnector.TransmartVariantStoreConnectorApplication;
 import nl.thehyve.transmartvariantstoreconnector.client.CaseClient;
 import nl.thehyve.transmartvariantstoreconnector.dto.Case;
@@ -35,16 +37,15 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 public class FilteringPatientSetClientServiceTests {
 
-    @MockBean
-    private CaseClient caseClient;
+    private @MockBean CaseClient caseClient;
 
-    @MockBean
-    private PatientSetClient patientSetClient;
+    private @MockBean PatientSetClient patientSetClient;
 
-    @Autowired
-    private MockMvc mvc;
+    private @Autowired MockMvc mvc;
 
-    private void setupMockData() {
+    private @Autowired ObjectMapper objectMapper;
+
+    private void setupMockData() throws JsonProcessingException {
         Constraint heartRateConstraint = AndConstraint.builder().args(Arrays.asList(
             ConceptConstraint.builder().conceptCode("Heart rate").build(),
             ValueConstraint.builder().valueType(DataType.Numeric).operator(Operator.Greater_than).value(140).build()
@@ -54,7 +55,7 @@ public class FilteringPatientSetClientServiceTests {
             PatientSetResult.builder()
                 .id(3456L)
                 .setSize(50L)
-                .requestConstraints(heartRateConstraint)
+                .requestConstraints(objectMapper.writeValueAsString(heartRateConstraint))
                 .name("Heart rate above 140")
                 .build());
         doReturn(heartRatePatientSetResponse)
@@ -82,7 +83,7 @@ public class FilteringPatientSetClientServiceTests {
             PatientSetResult.builder()
                 .id(7890L)
                 .setSize(25L)
-                .requestConstraints(heartRateConstraint)
+                .requestConstraints(objectMapper.writeValueAsString(heartRateConstraint))
                 .name("Heart rate + chrom X")
                 .build());
         doReturn(combinationPatientSetResponse)

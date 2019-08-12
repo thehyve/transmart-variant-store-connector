@@ -45,10 +45,12 @@ public class BiomarkerConstraintTranslatorService extends ConstraintRewriter {
         ListingArguments variantProperties = new ObjectMapper().convertValue(constraint.getParams(), ListingArguments.class);
         Set<String> subjectIds = caseClientService.fetchCases(variantProperties).stream()
             .map(Case::getIdentifier).collect(Collectors.toSet());
+        Constraint subjectSetConstraint = PatientSetConstraint.builder().subjectIds(subjectIds).build();
+        log.info("Create patient set for query: {}", subjectSetConstraint);
         PatientSetResult patientSet = ResponseEntityHelper.unwrap(patientSetClient.createPatientSet(
             "Biomarker subject set",
             true,
-            PatientSetConstraint.builder().subjectIds(subjectIds).build()
+            subjectSetConstraint
             ));
         return PatientSetConstraint.builder()
             .patientSetId(patientSet.getId())
