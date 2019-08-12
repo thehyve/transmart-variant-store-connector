@@ -35,7 +35,7 @@ mvn clean package
 There should now be a `.jar`-file in `target/transmart-variant-store-connector-<version>.jar`.
 ```bash
 # run the packaged application
-java -jar -Dspring.config.location=classpath:config/application.yml,/path/to/config.yml transmart-proxy-server/target/transmart-variant-store-connector-<version>.jar
+java -jar -Dspring.config.location=classpath:config/application.yml,/path/to/config.yml target/transmart-variant-store-connector-<version>.jar
 ```
 
 There should now be an application running at [http://localhost:9060/](http://localhost:9060/).
@@ -47,7 +47,6 @@ There should now be an application running at [http://localhost:9060/](http://lo
 ### Run in development mode
 
 ```bash
-cd transmart-proxy-server
 # run the application in development mode
 mvn spring-boot:run -Dspring.profiles.active=dev
 ```
