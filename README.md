@@ -27,7 +27,7 @@ for example configuration.
 
 #### Run
 
-Make sure you have Maven installed.
+Make sure you have Java 11 and Maven installed.
 ```bash
 # create a jar package
 mvn clean package
