@@ -28,14 +28,28 @@ for example configuration.
 #### Run
 
 Make sure you have Java 11 and Maven installed.
+
+##### From a Nexus repository
+
+Deployment artefacts are published to [the Nexus repository of The Hyve](https://repo.thehyve.nl/).
+
+To fetch and run [transmart-variant-store-connector-0.0.1.jar](https://repo.thehyve.nl/service/local/repositories/releases/content/nl/thehyve/transmart-variant-store-connector/0.0.1/transmart-variant-store-connector-0.0.1.jar):
+```bash
+# Fetch artefact from Maven
+curl -f -L https://repo.thehyve.nl/service/local/repositories/releases/content/nl/thehyve/transmart-variant-store-connector/0.0.1/transmart-variant-store-connector-0.0.1.jar -o transmart-variant-store-connector-0.0.1.jar && \
+# Run it with:
+java -jar -Dspring.config.location=classpath:config/application.yml,/path/to/config.yml target/transmart-variant-store-connector-0.0.1.jar
+```
+
+##### From sources
 ```bash
 # create a jar package
 mvn clean package
 ```
-There should now be a `.jar`-file in `target/transmart-variant-store-connector-<version>.jar`.
+There should now be a `.jar`-file in `target/transmart-variant-store-connector-0.0.1.jar`.
 ```bash
 # run the packaged application
-java -jar -Dspring.config.location=classpath:config/application.yml,/path/to/config.yml target/transmart-variant-store-connector-<version>.jar
+java -jar -Dspring.config.location=classpath:config/application.yml,/path/to/config.yml target/transmart-variant-store-connector-0.0.1.jar
 ```
 
 There should now be an application running at [http://localhost:9060/](http://localhost:9060/).
@@ -72,4 +86,3 @@ Copyright (c) 2019 The Hyve B.V.
 
 The Variant store connector for TranSMART is licensed under the MIT License.
 See the file [LICENSE](LICENSE).
-
