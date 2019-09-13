@@ -28,14 +28,13 @@ CERTS_PATH="/opt/connector/extra_certs.pem"
 
 # Import custom certificates
 [[ -f "${CERTS_PATH}" ]] && \
-    keytool -import -trustcacerts -file "${CERTS_PATH}" -alias certificate-alias -keystore /opt/connector/cacerts -storepass password -noprompt && \
-    mv /opt/connector/cacerts "${JAVACACERTDIR}/cacerts"
+    keytool -importcert -trustcacerts -file "${CERTS_PATH}" -alias certificate-alias -keystore ${JAVACACERTDIR}/cacerts -storepass changeit -noprompt 
 
 # Run variant store connector
 exec java \
      "-Dspring.application.name=transmart-variant-store-connector" \
      "-Dserver.port=${PORT}" \
-     "-Dkeycloak.auth-server-url=${KEYCLOAK_SERVER_URL}" \
+     "-Dkeycloak.auth-server-url=${KEYCLOAK_SERVER_URL}/auth" \
      "-Dkeycloak.realm=${KEYCLOAK_REALM}" \
      "-Dkeycloak.resource=${KEYCLOAK_CLIENT_ID}" \
      "-Dtransmart-client.transmart-server-url=${TRANSMART_API_SERVER_URL}" \
