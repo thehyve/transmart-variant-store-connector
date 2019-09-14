@@ -24,6 +24,11 @@ To build your own container image run following command:
 buildah unshare ./buildah.sh
 ```
 
+To copy the image to the local Docker repository, run:
+```bash
+skopeo copy containers-storage:docker.io/thehyve/transmart-variant-store-connector:latest docker-daemon:thehyve/transmart-variant-store-connector:latest
+```
+
 ## Getting prebuilded images from The Hyve
 
 We have already prebuilded images at Docker Hub.
