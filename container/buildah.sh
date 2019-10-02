@@ -3,7 +3,7 @@ set -ex
 export BUILDAH_FORMAT=docker
 export MAVEN_VERSION="3.6.1-jdk-11"
 export REPO_URL="https://repo.thehyve.nl/content/repositories/releases/"
-export CONNECTOR_VERSION="0.0.1"
+export CONNECTOR_VERSION="0.0.2"
 export JAVA_VERSION="11-jre"
 export JAVACACERTDIR="/usr/local/openjdk-11/lib/security"
 export PORT=9060

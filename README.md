@@ -33,12 +33,12 @@ Make sure you have Java 11 and Maven installed.
 
 Deployment artefacts are published to [the Nexus repository of The Hyve](https://repo.thehyve.nl/).
 
-To fetch and run [transmart-variant-store-connector-0.0.1.jar](https://repo.thehyve.nl/service/local/repositories/releases/content/nl/thehyve/transmart-variant-store-connector/0.0.1/transmart-variant-store-connector-0.0.1.jar):
+To fetch and run [transmart-variant-store-connector-0.0.2.jar](https://repo.thehyve.nl/service/local/repositories/releases/content/nl/thehyve/transmart-variant-store-connector/0.0.2/transmart-variant-store-connector-0.0.2.jar):
 ```bash
 # Fetch artefact from Maven
-curl -f -L https://repo.thehyve.nl/service/local/repositories/releases/content/nl/thehyve/transmart-variant-store-connector/0.0.1/transmart-variant-store-connector-0.0.1.jar -o transmart-variant-store-connector-0.0.1.jar && \
+curl -f -L https://repo.thehyve.nl/service/local/repositories/releases/content/nl/thehyve/transmart-variant-store-connector/0.0.2/transmart-variant-store-connector-0.0.2.jar -o transmart-variant-store-connector-0.0.2.jar && \
 # Run it with:
-java -jar -Dspring.config.location=classpath:config/application.yml,/path/to/config.yml target/transmart-variant-store-connector-0.0.1.jar
+java -jar -Dspring.config.location=classpath:config/application.yml,/path/to/config.yml target/transmart-variant-store-connector-0.0.2.jar
 ```
 
 ##### From sources
@@ -46,10 +46,10 @@ java -jar -Dspring.config.location=classpath:config/application.yml,/path/to/con
 # create a jar package
 mvn clean package
 ```
-There should now be a `.jar`-file in `target/transmart-variant-store-connector-0.0.1.jar`.
+There should now be a `.jar`-file in `target/transmart-variant-store-connector-0.0.2.jar`.
 ```bash
 # run the packaged application
-java -jar -Dspring.config.location=classpath:config/application.yml,/path/to/config.yml target/transmart-variant-store-connector-0.0.1.jar
+java -jar -Dspring.config.location=classpath:config/application.yml,/path/to/config.yml target/transmart-variant-store-connector-0.0.2.jar
 ```
 
 There should now be an application running at [http://localhost:9060/](http://localhost:9060/).
