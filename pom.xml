@@ -22,7 +22,7 @@
 		<lombok.version>1.18.8</lombok.version>
 		<spring-cloud.version>Greenwich.SR2</spring-cloud.version>
 		<spring-security-oauth2.version>2.3.6.RELEASE</spring-security-oauth2.version>
-		<transmart-lib.version>0.0.1</transmart-lib.version>
+		<transmart-lib.version>0.0.3</transmart-lib.version>
 		<wiremock.version>2.24.0</wiremock.version>
 	</properties>
 
