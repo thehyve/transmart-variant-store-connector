@@ -36,12 +36,12 @@ You can get one by runnung one of following commands:
 * Podman
     ```bash
     podman pull docker.io/thehyve/transmart-variant-store-connector:latest
-    podman pull docker.io/thehyve/transmart-variant-store-connector:0.0.1
+    podman pull docker.io/thehyve/transmart-variant-store-connector:0.0.3
     ```
 * Docker
     ```bash
     docker pull thehyve/transmart-variant-store-connector:latest
-    docker pull thehyve/transmart-variant-store-connector:0.0.2
+    docker pull thehyve/transmart-variant-store-connector:0.0.3
     ```
 
 ## Running a container
@@ -50,10 +50,10 @@ To run an instance of variant store container run one of following commands:
 * Podman
     ```bash
     podman run -p 9060:9060 -it --rm --env KEYCLOAK_SERVER_URL=https://keycloak.example.com/auth --env KEYCLOAK_REALM=transmart --env KEYCLOAK_CLIENT_ID=transmart-client --env TRANSMART_API_SERVER_URL=https://transmart-dev.thehyve.net --env VARIANT_STORE_URL=https://variant-store.example.com docker.io/thehyve/transmart-variant-store-connector:latest
-    podman run -p 9060:9060 -it --rm --env KEYCLOAK_SERVER_URL=https://keycloak.example.com/auth --env KEYCLOAK_REALM=transmart --env KEYCLOAK_CLIENT_ID=transmart-client --env TRANSMART_API_SERVER_URL=https://transmart-dev.thehyve.net --env VARIANT_STORE_URL=https://variant-store.example.com docker.io/thehyve/transmart-variant-store-connector:0.0.2
+    podman run -p 9060:9060 -it --rm --env KEYCLOAK_SERVER_URL=https://keycloak.example.com/auth --env KEYCLOAK_REALM=transmart --env KEYCLOAK_CLIENT_ID=transmart-client --env TRANSMART_API_SERVER_URL=https://transmart-dev.thehyve.net --env VARIANT_STORE_URL=https://variant-store.example.com docker.io/thehyve/transmart-variant-store-connector:0.0.3
     ```
 * Docker
     ```bash
     docker run -p 9060:9060 -it --rm --env KEYCLOAK_SERVER_URL=https://keycloak.example.com/auth --env KEYCLOAK_REALM=transmart --env KEYCLOAK_CLIENT_ID=transmart-client --env TRANSMART_API_SERVER_URL=https://transmart-dev.thehyve.net --env VARIANT_STORE_URL=https://variant-store.example.com thehyve/transmart-variant-store-connector:latest
-    docker run -p 9060:9060 -it --rm --env KEYCLOAK_SERVER_URL=https://keycloak.example.com/auth --env KEYCLOAK_REALM=transmart --env KEYCLOAK_CLIENT_ID=transmart-client --env TRANSMART_API_SERVER_URL=https://transmart-dev.thehyve.net --env VARIANT_STORE_URL=https://variant-store.example.com thehyve/transmart-variant-store-connector:0.0.2
+    docker run -p 9060:9060 -it --rm --env KEYCLOAK_SERVER_URL=https://keycloak.example.com/auth --env KEYCLOAK_REALM=transmart --env KEYCLOAK_CLIENT_ID=transmart-client --env TRANSMART_API_SERVER_URL=https://transmart-dev.thehyve.net --env VARIANT_STORE_URL=https://variant-store.example.com thehyve/transmart-variant-store-connector:0.0.3
     ```

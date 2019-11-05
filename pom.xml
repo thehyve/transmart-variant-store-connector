@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>nl.thehyve</groupId>
 	<artifactId>transmart-variant-store-connector</artifactId>
-	<version>0.0.2</version>
+	<version>0.0.3</version>
 	<name>transmart-variant-store-connector</name>
 	<description>Variant store connector for TranSMART</description>
 
